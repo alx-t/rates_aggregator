@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+/config/secrets.yml
+/config/database.yml
+.ruby-version
+.ruby-gemset
