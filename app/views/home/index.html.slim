@@ -1,0 +1,17 @@
+h3 Exhange rates on #{Time.now.strftime("%d/%m/%Y")}
+
+- if @rates
+  table.table.table-striped
+    thead
+      tr
+        th
+        - @rates.keys.each do |key|
+          th.align-center #{key}
+
+    tbody
+      - ExchangeRate::RELATIVE_CURRENCIES.each do |currency|
+        tr
+          th #{currency}
+          - @rates.keys.each do |key|
+            td.align-center
+              = @rates[key][currency].round(1)
