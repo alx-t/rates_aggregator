@@ -11,6 +11,8 @@ class EcbInt < ExchangeSource
         if currency == item["currency"]
           rates[currency] = item["rate"].to_f
           break
+        else
+          rates[currency] = 0
         end
       end
     end
