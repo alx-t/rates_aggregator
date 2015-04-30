@@ -4,15 +4,13 @@ describe "OpenExchange" do
 
   let(:open_exchange) { OpenExchange.new }
 
-  it "source name is present" do
-    expect(open_exchange.source_name).to eq("openexchangerates.org")
-  end
-
   it "EUR/EUR is 1.0" do
-    expect(open_exchange.get_rate("EUR", "EUR")).to eq(1.0)
+    rate = open_exchange.get_rates("EUR", ["EUR"])
+    expect(rate["openexchangerates.org"]["EUR"]).to eq(1.0)
   end
 
   it "EUR/USD is > 1.1" do
-    expect(open_exchange.get_rate("EUR", "USD")).to be > 1.1
+    rate = open_exchange.get_rates("EUR", ["USD"])
+    expect(rate["openexchangerates.org"]["USD"]).to be > 1.1
   end
 end
