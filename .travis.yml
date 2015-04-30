@@ -12,4 +12,14 @@ script:
 - bundle exec rake
 addons:
   code_climate:
-    repo_token: fb9c60c10e567734dc869103e8899ca3acc1cf8fc359ba7d2f46cbbcaf2b799f
+    repo_token: 3a8a7cbb21c0edd76711818c502cdb0d9033b0d51c355f9109abfe02a40b329c
+deploy:
+  provider: heroku
+  api_key:
+    secure: tkXAAx4m1URJGS6oQSSl0we9K4ajwqD4EWEeFv5B1+Yhp5Fj6AK/UYep2ZY8pGdTobZHXPndWPjupZeR4C+gOnzpxiiW7Kr16VthdhDjyRPsiQUkwA+6W7ohvqD6yf6XN5aOgej5hZuNgYXwMTzqWyOzNpqOcvq9AAB1jANEOgI=
+  app: fathomless-garden-2448
+  on:
+    repo: alx-t/rates_aggregator
+    branch: master
+  run:
+    - "rake db:migrate"
