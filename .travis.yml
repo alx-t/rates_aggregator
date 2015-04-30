@@ -16,10 +16,7 @@ addons:
 deploy:
   provider: heroku
   api_key:
-    secure: tkXAAx4m1URJGS6oQSSl0we9K4ajwqD4EWEeFv5B1+Yhp5Fj6AK/UYep2ZY8pGdTobZHXPndWPjupZeR4C+gOnzpxiiW7Kr16VthdhDjyRPsiQUkwA+6W7ohvqD6yf6XN5aOgej5hZuNgYXwMTzqWyOzNpqOcvq9AAB1jANEOgI=
+    secure: GV83ZjlnK0pBDdMdEqQx2eN1sHEK6vuYxcsoItrjXEMV1hLu4v3yF0K/5l8DuwYqzN+P6Li1yYpme9M2+QPcCdP1QH3nWe4xxzcHQPHvIFZL7OsGJrAau6OJuK9w5Q0wIbfnpH6A8cc9BGv+mGMehDHmWqDgGczxs7T7MZOdN9o=
   app: fathomless-garden-2448
   on:
     repo: alx-t/rates_aggregator
-    branch: master
-  run:
-    - "rake db:migrate"
