@@ -12,7 +12,7 @@ script:
 - bundle exec rake
 addons:
   code_climate:
-    repo_token: fb9c60c10e567734dc869103e8899ca3acc1cf8fc359ba7d2f46cbbcaf2b799f
+    repo_token: 3a8a7cbb21c0edd76711818c502cdb0d9033b0d51c355f9109abfe02a40b329c
 deploy:
   provider: heroku
   api_key:
