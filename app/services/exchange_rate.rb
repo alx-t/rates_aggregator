@@ -10,15 +10,18 @@ class ExchangeRate
 
   def self.get_rates
     rate_sources = get_rate_sources
-    exchange_rates = {}
+    exchange_rates = []
     rate_sources.each do |source|
-      exchange_rates.merge!(source.get_rates(BASE_CURRENCY, RELATIVE_CURRENCIES))
+      exchange_rates << source.get_rates
     end
     exchange_rates
   end
 
   def self.get_rate_sources
     rate_sources = []
-    rate_sources << OpenExchange.new << Appspot.new << EcbInt.new
+    rate_sources <<
+      OpenExchange.new(BASE_CURRENCY, RELATIVE_CURRENCIES) <<
+      Appspot.new(BASE_CURRENCY, RELATIVE_CURRENCIES) <<
+      EcbInt.new(BASE_CURRENCY, RELATIVE_CURRENCIES)
   end
 end
