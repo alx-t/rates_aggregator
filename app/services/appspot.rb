@@ -3,13 +3,17 @@ class Appspot < ExchangeSource
   API_ID = Rails.application.secrets.appspot_api_id
   SOURCE_URL = Rails.application.secrets.appspot_url
 
-  def get_rates(base_currency, relative_currencies)
-    rates = {}
-    relative_currencies.each do |currency|
-      url = "#{SOURCE_URL}/#{base_currency}/#{currency}.json?key=#{API_ID}"
+  private
+
+  def set_class_variables
+    @rate.title = SOURCE_NAME
+  end
+
+  def calculate_rates
+    @relative_currencies.each do |currency|
+      url = "#{SOURCE_URL}/#{@base_currency}/#{currency}.json?key=#{API_ID}"
       json_doc = JSON.parse(get_document(url))
-      rates[currency] = json_doc["rate"] || 0
+      @rate.rates[currency] = json_doc["rate"] || 0
     end
-    { SOURCE_NAME => rates }
   end
 end

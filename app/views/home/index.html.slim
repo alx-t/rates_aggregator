@@ -5,8 +5,8 @@ h3 Exhange rates on #{Time.now.strftime("%d/%m/%Y")}
     thead
       tr
         th
-        - @rates.keys.each do |key|
-          th.align-center = key
+        - @rates.each do |rate|
+          th.align-center = rate.title
 
     tbody
       - ExchangeRate::RELATIVE_CURRENCIES.each do |currency|
@@ -14,4 +14,4 @@ h3 Exhange rates on #{Time.now.strftime("%d/%m/%Y")}
           th = currency
           - @rates.each do |rate|
             td.align-center
-              = rate[1][currency].round(1)
+              = rate.rates[currency].round(1)
